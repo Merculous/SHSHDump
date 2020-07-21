@@ -3,7 +3,7 @@ which we can extract a good shsh/ticket since it contains a generator, which is 
 
 Why use this?
 
-Well, the first benefit is that this script grabs a useable shsh/ticket which will contain a generator.
+Well, the first benefit is that this script grabs a usable shsh/ticket which will contain a generator.
 Since the apticket in /System/Library/Caches/ will only contain a signature and no generator.
 
 # Installation
