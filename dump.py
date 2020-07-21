@@ -50,11 +50,7 @@ def getimg4tool():
         os.chdir('.tmp/libplist')
 
         subprocess.run(
-            ('./autogen.sh;',
-             'make;',
-             'sudo',
-             'make',
-             'install'),
+            './autogen.sh --without-cython && make && sudo make install',
             stdout=subprocess.DEVNULL,
             shell=True)
 
@@ -71,11 +67,7 @@ def getimg4tool():
         os.chdir('.tmp/libgeneral')
 
         subprocess.run(
-            ('./autogen.sh;',
-             'make;',
-             'sudo',
-             'make',
-             'install'),
+            './autogen.sh && make && sudo make install',
             stdout=subprocess.DEVNULL,
             shell=True)
 
@@ -96,7 +88,10 @@ def getimg4tool():
 
         os.chdir('build')
 
-        subprocess.run(('cmake', '..'), stdout=subprocess.DEVNULL)
+        subprocess.run(
+            'cmake .. && make && sudo make install',
+            stdout=subprocess.DEVNULL,
+            shell=True)
 
         os.chdir(cwd)
 
@@ -112,11 +107,7 @@ def getimg4tool():
         os.chdir('.tmp/img4tool')
 
         subprocess.run(
-            ('./autogen.sh;',
-             'make;',
-             'sudo',
-             'make',
-             'install'),
+            './autogen.sh && make && sudo make install',
             stdout=subprocess.DEVNULL,
             shell=True)
 
@@ -245,11 +236,11 @@ def go():
     argv = sys.argv
 
     if not os.path.exists('.tmp'):
-        has_plist = 'Compiled with plist: YES'
+        has_plist = b'Compiled with plist: YES'
         img4tool_check = subprocess.run(
             ('which',
              'img4tool'),
-            stdout=subprocess.DEVNULL)
+            stdout=subprocess.PIPE)
 
         if img4tool_check.returncode == 1 or has_plist not in img4tool_check.stdout:
             getimg4tool()
