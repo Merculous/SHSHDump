@@ -1,7 +1,7 @@
 autopep8==1.5.3
 bcrypt==3.1.7
 cffi==1.14.0
-cryptography==2.9.2
+cryptography==3.2
 flake8==3.8.3
 importlib-metadata==1.7.0
 mccabe==0.6.1
