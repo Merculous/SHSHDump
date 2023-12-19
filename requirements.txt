@@ -5,7 +5,7 @@ cryptography==39.0.1
 flake8==3.8.3
 importlib-metadata==1.7.0
 mccabe==0.6.1
-paramiko==2.10.1
+paramiko==3.4.0
 pycodestyle==2.6.0
 pycparser==2.20
 pyflakes==2.2.0
